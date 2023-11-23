@@ -1,0 +1,10 @@
+---
+- name: Install Docker
+  ansible.builtin.package:
+    name: docker
+    state: present
+
+- name: Install Docker Compose
+  ansible.builtin.package:
+    name: docker-compose
+    state: present
