@@ -6,3 +6,9 @@
     - name: Install Docker and Docker Compose on Debian 12 or Ubuntu 22.04
       ansible.builtin.include_tasks: tasks/install_docker.yaml
       when: ansible_distribution_version | regex_search('^12.*') or ansible_distribution_version == '22.04'
+
+    - name: Ensure docker service is running
+      service:
+        name: docker
+        state: started
+      when: ansible_distribution_version | regex_search('^12.*') or ansible_distribution_version == '22.04'
